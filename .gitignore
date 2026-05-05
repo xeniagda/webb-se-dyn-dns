@@ -1,0 +1,5 @@
+.direnv
+.mypy_cache
+__pycache__
+config.toml
+api-key.secret
