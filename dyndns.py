@@ -21,7 +21,7 @@ async def run(cfg_file_path: str):
             ip = await get_ip.get_ip()
             if ip == last_ip:
                 continue
-            print(f"IP changed from {last_ip} to {ip}. Updating.")
+            print(f"IP changed from {last_ip} to {ip}. Updating.", flush=True)
             await webb_se_api.update_a_record(domain, ip)
             last_ip = ip
         except Exception as e:
