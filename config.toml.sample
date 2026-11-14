@@ -1,5 +1,7 @@
 username = "your.username"
 api_key_location = "./api-key.secret"
+# or
+api_key = "......"
 
 domain = "hem.test.se"
 wait = 30

@@ -10,7 +10,13 @@ async def run(cfg_file_path: str):
     cfg = toml.load(cfg_file_path)
 
     username = cfg["username"]
-    api_key = open(cfg["api_key_location"], "r").read().strip()
+    if "api_key_location" in cfg:
+        api_key = open(cfg["api_key_location"], "r").read().strip()
+    elif "api_key" in cfg:
+        api_key = cfg["api_key"]
+    else:
+        print("Need at least one of api_key, api_key_location in config")
+        exit(1)
     domain, wait_time = cfg["domain"], cfg["wait"]
 
     webb_se_api = webbse.WebbSE(username, api_key)
