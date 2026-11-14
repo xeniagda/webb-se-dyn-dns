@@ -1,7 +1,7 @@
 import aiohttp
 
 async def get_ip() -> str:
-    async with aiohttp.ClientSession() as s:
+    async with aiohttp.ClientSession(raise_for_status=True) as s:
         r = await s.get("https://api.ipify.org/")
         return await r.text()
 
